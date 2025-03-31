@@ -1,4 +1,4 @@
-import img1 from "../assets/Momo.png";
+import momo from "../assets/momo.png";
 import { NavLink } from "react-router-dom";
 import { FaInstagram, FaFacebookF, FaLinkedinIn, FaTwitter, FaYoutube, FaTiktok } from "react-icons/fa";
 
@@ -9,7 +9,7 @@ function Footer() {
         {/* Logo and Description */}
         <div className="flex flex-wrap items-center md:mb-0 md:w-2/5">
           <NavLink to="/" className="flex items-center">
-            <img src={img1} alt="Logo" className="w-12 mr-2 mb-1 " />
+            <img src={momo} alt="Logo" className="w-12 mr-2 mb-1 " />
             <h1 className="text-2xl font-bold text-green-700 mb-2 ">momos</h1>
           </NavLink>
           <p className="font-normal leading-relaxed text-normal  mb-6">

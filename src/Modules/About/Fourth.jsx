@@ -1,78 +1,45 @@
-import line from "../../assets/line.png";
-import "@fontsource/chela-one";
+import bgbeside from '../../assets/aboutgirlbeside.png';
+import girl from '../../assets/aboutgirl.png';
+import { RiDoubleQuotesL } from "react-icons/ri";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
-function Second() {
-  return (
-    <div className="p-6">
-      {/* Section Title */}
-      <h1 className="flex items-center justify-center gap-4 mb-12">
-        <img src={line} alt="line" className="w-24 h-1" />
-        <span className="text-orange-500 font-chela-one text-4xl">Ingredients</span>
-        <span className="text-[#101828] font-chela-one text-4xl">Used</span>
-        <img src={line} alt="line" className="w-24 h-1" />
-      </h1>
+function Fourth() {
+    return (
+        <div className=" relative h-[690px] bg-cover bg-no-repeat bg-center flex items-center" style={{ backgroundImage: `url(${bgbeside})` }}>
+            {/* Overlay for Dark Effect */}
+            <div className="absolute inset-0 bg-black opacity-75 backdrop-filter: blur(30px); backdrop-blur-md "></div>
 
-      {/* Ingredients Sections */}
-      <div className="space-y-6">
-        {/* Dough Section */}
-        <div>
-          <h2 className="text-xl font-semibold">For the Dough</h2>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>120 gms refined flour</li>
-            <li>1/4 tsp baking powder</li>
-            <li>1/2 tsp salt water (for kneading)</li>
-          </ul>
+            {/* Main Content Wrapper */}
+            <div className=" relative w-full mx-auto flex justify-between items-center h-full ">
+                {/* Left Side Content */}
+                <div className="   ml-64  w-[700px] relative z-10 pl-5 ">
+                    <RiDoubleQuotesL size={75} color='white' />
+                    <p className=" font-sans font-light text-[27px] tracking-wide leading-[47px] text-[#d8d7d7] mt-6">
+                        Momo is not just about sustenance, it's about bringing people together and creating memories.
+                        At our restaurant, we strive to create a warm and inviting atmosphere where our guests can enjoy
+                        delicious momo, great company, and unforgettable experiences.
+                    </p>
+                    <h2 className=" font-sans font-bold text-[45px] tracking-wide text-[#ffffff] mt-14">Marcus Schleifer</h2>
+                    <h3 className="font-sans font-bold text-[31px] tracking-wide text-[#ffffff] mt-0 uppercase">CEO</h3>
+
+                    {/* Arrow Buttons Below CEO */}
+                    <div className="flex justify-end gap-4 mt-6">
+                        <button className="bg-slate-600 text-white border-2 border-gray-800 rounded-full p-3 shadow-lg hover:bg-slate-700 transition-colors">
+                            <FiArrowLeft size={24} />
+                        </button>
+                        <button className="bg-slate-600 text-white border-2 border-gray-800 rounded-full p-3 shadow-lg hover:bg-slate-700 transition-colors">
+                            <FiArrowRight size={24} />
+                        </button>
+                    </div>
+                </div>
+
+                {/* Right Side Image */}
+                <div className="  relative  z-10 h-full flex items-center justify-end w-[600px]">
+                    <img src={girl} alt="CEO" className="h-full w-auto object-cover rounded-lg shadow-lg " />
+                </div>
+            </div>
         </div>
-
-        {/* Chicken Filling Section */}
-        <div>
-          <h2 className="text-xl font-semibold">For the Chicken Filling</h2>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>1 cup chicken (minced)</li>
-            <li>1/2 cup onions, finely chopped</li>
-            <li>1/4 tsp black pepper powder</li>
-            <li>1 tbsp oil</li>
-            <li>1/2 tsp garlic paste</li>
-            <li>1/2 tsp soya sauce</li>
-            <li>Salt</li>
-            <li>1/4 tsp vinegar</li>
-          </ul>
-        </div>
-
-        {/* Vegetarian & Sauce Section */}
-        <div className="space-y-6">
-          {/* Vegetarian Filling */}
-          <div>
-            <h2 className="text-xl font-semibold">For the Vegetarian Filling</h2>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>1 cup cabbage and carrots, grated</li>
-              <li>2 tbsp onions, finely chopped</li>
-              <li>1/2 tsp garlic, finely chopped</li>
-              <li>1 tbsp oil</li>
-              <li>1/4 tsp vinegar</li>
-              <li>1/2 tsp soya sauce</li>
-              <li>Salt to taste</li>
-              <li>Pepper to taste</li>
-              <li>1 tbsp cornflour</li>
-            </ul>
-          </div>
-
-          {/* Chilli Sauce Section */}
-          <div>
-            <h2 className="text-xl font-semibold">For Chilli Sauce</h2>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>25 gram garlic, peeled</li>
-              <li>6 gms whole red chillies</li>
-              <li>3 tbsp vinegar</li>
-              <li>1 tbsp oil</li>
-              <li>Salt to taste</li>
-              <li>Sugar to taste</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+    );
 }
 
-export default Second;
+export default Fourth;

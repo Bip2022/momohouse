@@ -3,7 +3,21 @@ import { CiLocationOn } from "react-icons/ci";
 import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
 import { IoMdTime } from "react-icons/io";
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
+
 function Seventh() {
+  const [name, setName] = useState("");
+  const [last, setLast] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const [serviceType, setServiceType] = useState("");
+
+  const formHandle = (e) => {
+    e.preventDefault();
+    console.log({ name, last, email, phone, serviceType, message });
+  };
+
   return (
     <div className="mt-10"
       style={{
@@ -46,6 +60,7 @@ function Seventh() {
           justifyContent: "center",
           alignItems: "flex-start",
           gap: "40px",
+          flexWrap: "wrap", // Allow wrapping for smaller screens
         }}
       >
         {/* Left Side */}
@@ -60,6 +75,7 @@ function Seventh() {
             display: "flex",
             flexDirection: "column",
             gap: "40px",
+            flex: "1 1 300px", // Allow this column to shrink and grow based on screen size
           }}
         >
           {/* Address Section */}
@@ -168,9 +184,10 @@ function Seventh() {
             padding: "20px",
             backgroundColor: "#f9f9f9",
             borderRadius: "8px",
+            flex: "1 1 300px", // Allow this column to shrink and grow based on screen size
           }}
         >
-          <form
+          <form onSubmit={formHandle}
             style={{
               display: "flex",
               flexDirection: "column",
@@ -181,7 +198,8 @@ function Seventh() {
             <div style={{ display: "flex ", gap: "10px" }}>
               <div>
                 <p>First Name</p>
-                <input
+                <input value={name}
+                  onChange={(e) => setName(e.target.value)}
                   type="text"
                   placeholder="First Name"
                   style={{
@@ -194,12 +212,12 @@ function Seventh() {
               </div>
               <div>
                 <p>Last Name</p>
-                <input
+                <input value={last}
+                  onChange={(e) => setLast(e.target.value)}
                   type="text"
                   placeholder="Last Name"
                   style={{
                     padding: "10px",
-
                     borderRadius: "5px",
                     border: "1px solid #ccc",
                     width: "230px",
@@ -210,7 +228,8 @@ function Seventh() {
 
             <div>
               <p>Email</p>
-              <input
+              <input value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 placeholder="Email"
                 style={{
@@ -225,6 +244,8 @@ function Seventh() {
             <div>
               <p>What can we do for you?</p>
               <select
+                value={serviceType}
+                onChange={(e) => setServiceType(e.target.value)}
                 style={{
                   padding: "10px",
                   borderRadius: "5px",
@@ -253,6 +274,8 @@ function Seventh() {
                   🇳🇵 +977
                 </span>
                 <input
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
                   type="tel"
                   placeholder="Phone Number"
                   style={{
@@ -268,6 +291,8 @@ function Seventh() {
             <div>
               <p>Message</p>
               <textarea
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 placeholder="Message"
                 rows="4"
                 style={{
@@ -280,16 +305,17 @@ function Seventh() {
             </div>
 
             <button
+              disabled={!name || !last || !email || !phone || !serviceType || !message}
               type="submit"
               style={{
+                backgroundColor: !name || !last || !email || !phone || !serviceType || !message ? "#ff6600" : "#ccc",
+                cursor: !name || !last || !email || !phone || !serviceType || !message ? "not-allowed" : "pointer",
                 width: "256px",
                 height: "59px",
                 borderRadius: "100px",
                 padding: "20px 40px",
-                backgroundColor: "#ff6600",
                 color: "white",
                 border: "none",
-                cursor: "pointer",
                 fontSize: "14px",
                 marginTop: "10px",
                 display: "flex",

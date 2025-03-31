@@ -1,5 +1,7 @@
+
 import First from "../Modules/Allergy/First";
 import Second from "../Modules/Allergy/Second";
+import Third from "../Modules/Allergy/Third";
 
 
 
@@ -8,6 +10,8 @@ function AllergyAdvice() {
     <div>
 <First/>
 <Second/>
+<Third/>
+
     </div>
   )
 }

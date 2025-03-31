@@ -2,6 +2,7 @@ import Third from "../Modules/About/Third";
 import First from "../Modules/About/First";
 import Second from "../Modules/About/Second";
 import Fourth from "../Modules/About/Fourth";
+import Fifth from "../Modules/About/Fifth";
 
 function About() {
   return (
@@ -10,6 +11,7 @@ function About() {
      <Second/>
   <Third/>
   <Fourth/>
+  <Fifth/>
     </div>
   )
 }
