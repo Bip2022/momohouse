@@ -17,7 +17,7 @@ function NavBar() {
     <div className="border-b-2 border-gray-500 overflow-x-hidden">
       <div className="w-full m-auto px-4 sm:px-4 md:px-4 lg:px-5 xl:px-14 2xl:px-14">
         <div className="flex justify-between items-center my-5 pb-2 pt-2 font-primary-head">
-          
+
           {/* Left Section - Logo */}
           <div className="flex items-center">
             <NavLink to="/" className="flex items-center gap-x-3 mt-1.5">
@@ -55,7 +55,7 @@ function NavBar() {
                 <NavLink to="/signUp" className="hover:text-green-600">Sign Up</NavLink>
               </div>
             )}
-            
+
             <NavLink to="/cart" className="relative">
               <span className="absolute -top-2.5 -right-3 text-[#D95103]">{totalItems}</span>
               <FaCartArrowDown size={25} className="text-green-800" />
@@ -78,6 +78,7 @@ function NavBar() {
             {/* Profile picture */}
             {isAuthenticated ? (
               <NavLink className="rounded-full flex justify-center items-center" to="/profile">
+                {/* Ensure picture URL is available */}
                 {user?.picture ? (
                   <img className="h-8 rounded-full" src={user.picture} alt="User Profile" />
                 ) : (
@@ -93,8 +94,8 @@ function NavBar() {
         </div>
 
         {/* Mobile Menu - Displayed when 'menuOpen' state is true */}
-        <div className={`xl:hidden flex items-center gap-4 absolute top-16 left-0 w-full z-50 mt-10 bg-[#F7F9FC] shadow-lg `}>
-          <div className="flex flex-col items-center gap-y-4 py-5">
+        <div className={`xl:hidden flex  items-center gap-4 absolute top-16 left-0 w-full z-50 mt-10 bg-[#F7F9FC] shadow-lg ${menuOpen ? 'block' : 'hidden'}`}>
+          <div className="flex flex-col items-center gap-y-4 py-5 ml-4">
             <NavLink to="/about" className="text-lg font-medium hover:text-green-600">About Us</NavLink>
             <NavLink to="/menu" className="text-lg font-medium hover:text-green-600">Our Menu</NavLink>
             <NavLink to="/services" className="text-lg font-medium hover:text-green-600">Our Services</NavLink>
