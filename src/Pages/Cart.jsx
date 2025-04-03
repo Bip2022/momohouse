@@ -114,17 +114,22 @@ function Cart() {
             </div>
           </div>
         ) : (
-          <div className="w-[1234px] m-auto py-20 text-center">
-            <NavLink to="/menu">
-              <img className="w-1/2 m-auto" src={cart} alt="Empty cart" />
+          <div className="w-full max-w-lg mx-auto py-10 sm:py-16 md:py-20 lg:py-24 xl:py-28 text-center">
+          <NavLink to="/menu">
+            <img
+              className="w-3/4 sm:w-2/3 md:w-1/2 lg:w-[75%] xl:w-[75%] mx-auto"
+              src={cart}
+              alt="Empty Cart"
+            />
+          </NavLink>
+          <p className="font-semibold text-lg sm:text-xl md:text-2xl mt-4 sm:mt-5">
+            Empty Cart{" "}
+            <NavLink to="/menu" className="underline text-red-500">
+              Shop Now
             </NavLink>
-            <p className="font-semibold p-5 text-2xl">
-              Empty Cart{" "}
-              <NavLink to="/menu" className="underline text-red-500">
-                Shop Now
-              </NavLink>
-            </p>
-          </div>
+          </p>
+        </div>
+        
         )}
       </div>
     </>

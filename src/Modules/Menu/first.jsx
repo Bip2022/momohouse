@@ -1,28 +1,25 @@
-import "@fontsource/allura"; // Importing the font
-import Qr from "../../Components/Qr";
+import "@fontsource/allura"; // Importing the Allura font
+import Qr from "../../Components/Qr"; // Ensure the correct path
 
 function First() {
   return (
     <>
-      <div className="w-full max-h-screen flex justify-center items-start py-16">
-        <div className="w-[1300px] px-4">
-          <div className="text-center mb-6">
-            <h1 className="text-[40px] sm:text-[48px] md:text-[56px] font-allura text-teal-700 mb-6 leading-[1]">
-              Our Menu
-            </h1>
-
-            <p className="text-orange-700 text-[25px] sm:text-[28px] md:text-[31px] font-proxima font-[500] leading-[1.2]">
-              Our menu is more than just momos,
-            </p>
-            <p className="text-gray-700 text-[25px] sm:text-[28px] md:text-[31px] font-proxima font-[500] leading-[1.2]">
-              with a variety of dishes to cater to all tastes and preferences.
-            </p>
-          </div>
+      <div className="w-full max-w-[1300px] mx-auto px-4 sm:px-6 md:px-8 lg:px-14 py-6 sm:py-8 md:py-10 lg:py-12 font-primary-head">
+        <div className="text-center">
+          <h2 className="text-[32px] texxt-left sm:text-[39px] md:text-[39px] lg:text-[56px] text-[#0C6967] font-allura mb-4">
+            Our Menu
+          </h2>
+          <h3 className="text-[22px] sm:text-[27px] md:text-[27px] lg:text-[31px] text-[#D95103] font-semibold">
+            Our menu is more than just momos,
+          </h3>
+          <h3 className="text-[22px] sm:text-[27px] md:text-[27px] lg:text-[31px] font-semibold mb-7">
+            with a variety of dishes to cater to all tastes and preferences.
+          </h3>
         </div>
       </div>
 
-      {/* Adjusting margin to bring the QR section up */}
-      <div className="-mt-16"> {/* Negative margin applied here */}
+      {/* Ensuring proper alignment and spacing for the QR section across all devices */}
+      <div className="px-4 sm:px-6 -mt-10 sm:-mt-12 md:-mt-16 flex justify-center">
         <Qr />
       </div>
     </>

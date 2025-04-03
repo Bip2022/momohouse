@@ -6,11 +6,11 @@ import "@fontsource/chela-one";
 
 function Second() {
   return (
-    <div className=" relative w-full min-h-screen flex flex-col items-center justify-center">
+    <div className="px-4 sm:px-6 relative w-full min-h-screen flex flex-col items-center justify-center">
       {/* Background Images */}
-      <img src={img1} alt="background" className="absolute left-[460px] top-[95px] w-[380px] h-[340px]" />
-      <img src={img2} alt="background" className="absolute top-[520px] w-[1400px] h-[800px]" />
-      <img src={img3} alt="background" className="absolute  right-[400px] top-[1520px] bottom-0 w-[230px] h-[260px]" />
+      <img src={img1} alt="background" className="absolute  lg:left-[200px] left-[18px] md:left-[60px] sm:left-[30px] xl:left-[300px] 2xl:left-[400px]  top-[120px] lg:top-[95px]  lg:w-[380px] lg:h-[340px] w-[200px] h-[200px]" />
+      <img src={img2} alt="background" className="absolute lg:top-[520px] sm:w-[1000px] w-[320px] lg:w-[1400px] xl:w-[1100px] lg:h-[800px]  sm:h-[700px]" />
+      <img src={img3} alt="background" className="absolute right-[10px] sm:right-[20px] lg:right-[180px] xl:right-[290px] 2xl:right-[400px] md:right-[50px] lg:top-[1520px] top-[1760px] sm:top-[1590px] lg:bottom-0   w-[150px] lg:w-[230px] lg:h-[260px]" />
 
       {/* Section Title */}
       <h1 className="relative inline-flex items-center justify-center gap-4 mb-12 z-10 text-[40px] leading-[48px]">
@@ -21,7 +21,7 @@ function Second() {
       </h1>
 
       {/* Ingredients Sections */}
-      <div className="relative flex flex-col mt-12 space-y-6 items-center w-full max-w-2xl z-10">
+      <div className="relative flex flex-col mt-12 sm:px-6 space-y-6 items-center w-full max-w-2xl z-10">
         {[
           {
             title: "For the Dough",
@@ -72,7 +72,7 @@ function Second() {
         ].map((section, index) => (
           <div
             key={index}
-            className="border-4 border-green-600 p-4 rounded-lg w-full bg-white bg-opacity-80"
+            className="border-4 border-green-600 p-4 rounded-lg w-full bg-white"
           >
             <h2 className="text-xl font-semibold pl-6">{section.title}</h2>
             <ul className="list-none pl-6 pt-5 space-y-5">

@@ -4,87 +4,56 @@ import { FaInstagram, FaFacebookF, FaLinkedinIn, FaTwitter, FaYoutube, FaTiktok 
 
 function Footer() {
   return (
-    <footer className="mt-10 px-8 py-6 text-gray-700 bg-white drop-shadow-md md:px-32">
-      <div className="flex flex-col gap-12 md:flex-row md:justify-between md:gap-16">
-        {/* Logo and Description */}
-        <div className="flex flex-wrap items-center md:mb-0 md:w-2/5">
-          <NavLink to="/" className="flex items-center">
-            <img src={momo} alt="Logo" className="w-12 mr-2 mb-1 " />
-            <h1 className="text-2xl font-bold text-green-700 mb-2 ">momos</h1>
-          </NavLink>
-          <p className="font-normal leading-relaxed text-normal  mb-6">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sem tempor egestas molestie. Volutpat quis egestas porttitor turpis sit in. Lorem nunc nullam morbi urna amet suspendisse nullam ac vivamus.
-          </p>
+    <>
+        <div className="bg-[#FAFBFB] px-4 sm:px-4 font-primary-head">
+        <div className="flex flex-col sm:flex-col md:flex-col lg:flex-row justify-around py-16 w-[100%] m-auto border-b border-[#d4d3d3]">
+            
+        <div className="w-[100%] sm:w-[100%] md:w-[100%] lg:w-[349px] xl:w-[550px] mb-6 sm:mb-6 md:mb-6 lg:mb-0">
+           <NavLink to="/" className="flex items-center gap-x-3">
+                <img src={momo} alt="momo_snap" className="h-9" />
+                <h1 className="text-2xl text-green-700 hover:text-green-500 font-bold ml-1">momos</h1>
+            </NavLink>
+            <p className="mt-4 text-[15px] sm:text-[15px] md:text-[16px] text-[#6B788E] font-normal font-primary-head leading-loose">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum 
+                has been the industry's standard dummy text ever since the 1500s</p>
         </div>
 
-
-
-
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:w-3/5">
-          <div>
-            <h3 className="mb-2 text-lg font-semibold text-green-700 hover:underline">Momos</h3>
-            <nav className="space-y-2">
-              <NavLink to="/about" className="block font-normal hover:text-black">About Us</NavLink>
-              <NavLink to="/menu" className="block font-normal hover:text-black">Our Menu</NavLink>
-              <NavLink to="/services" className="block font-normal hover:text-black">Our Services</NavLink>
-              <NavLink to="/contact" className="block font-normal hover:text-black">Contact Us</NavLink>
-            </nav>
-          </div>
-
-          <div>
-            <h3 className="mb-2 text-lg font-semibold text-green-700 hover:underline ">Legals</h3>
-            <nav className="space-y-2">
-              <NavLink to="/terms" className="block hover:text-black">Terms & Conditions</NavLink>
-              <NavLink to="/privacy" className="block hover:text-black">Privacy Policy</NavLink>
-              <NavLink to="/support" className="block hover:text-black">Support</NavLink>
-            </nav>
-          </div>
-
-          <div>
-            <h3 className="mb-2 text-lg font-semibold text-green-700 hover:underline">Follow Us</h3>
-            <div className="flex gap-6 flex-nowrap">
-              <NavLink to="https://www.instagram.com/" target="_blank">
-                <div className="p-2 transition-colors duration-200 bg-gray-300 rounded-full cursor-pointer hover:bg-gray-400">
-                  <FaInstagram className="text-white" />
-                </div>
-              </NavLink>
-              <NavLink to="https://www.facebook.com/" target="_blank">
-                <div className="p-2 transition-colors duration-200 bg-gray-300 rounded-full cursor-pointer hover:bg-gray-400">
-                  <FaFacebookF className="text-white" />
-                </div>
-              </NavLink>
-              <NavLink to="https://www.twitter.com/" target="_blank">
-                <div className="p-2 transition-colors duration-200 bg-gray-300 rounded-full cursor-pointer hover:bg-gray-400">
-                  <FaTwitter className="text-white" />
-                </div>
-              </NavLink>
-            </div>
-            <div className="flex gap-6 mt-5 flex-nowrap">
-              <NavLink to="https://www.youtube.com/" target="_blank">
-                <div className="p-2 transition-colors duration-200 bg-gray-300 rounded-full cursor-pointer hover:bg-gray-400">
-                  <FaYoutube className="text-white" />
-                </div>
-              </NavLink>
-              <NavLink to="https://www.linkedin.com/" target="_blank">
-                <div className="p-2 transition-colors duration-200 bg-gray-300 rounded-full cursor-pointer hover:bg-gray-400">
-                  <FaLinkedinIn className="text-white" />
-                </div>
-              </NavLink>
-              <NavLink to="https://www.tiktok.com/" target="_blank">
-                <div className="p-2 transition-colors duration-200 bg-gray-300 rounded-full cursor-pointer hover:bg-gray-400">
-                  <FaTiktok className="text-white" />
-                </div>
-              </NavLink>
-            </div>
-          </div>
+        <div className="flex justify-between flex-col sm:flex-row md:flex-row lg:flex-row lg:gap-x-12">
+        <div className="mb-6 sm:mb-6 md:mb-0">
+            <h2 className="text-[18px] sm:text-[18px] md:text-[25px] text-green-700 hover:text-green-700 font-bold mb-4">Momos</h2>
+            <ul className="flex flex-col">
+               <NavLink to="/about"><li className="text-[15px] sm:text-[15px] md:text-[16px] font-primary-head text-[#252D43] mb-2">About Us</li></NavLink>
+               <NavLink to="/menu"><li className="text-[15px] sm:text-[15px] md:text-[16px] font-primary-head text-[#252D43] mb-2">Our Menu</li></NavLink>
+               <NavLink to="/services"><li className="text-[15px] sm:text-[15px] md:text-[16px] font-primary-head text-[#252D43] mb-2">Our Services</li></NavLink>
+               <NavLink to="/contact"><li className="text-[15px] sm:text-[15px] md:text-[16px] font-primary-head text-[#252D43] mb-2">Contact Us</li></NavLink>
+            </ul>
         </div>
-      </div>
 
-      <hr className="my-4 border-gray-300" />
-      <p className="text-sm text-center text-gray-400">
-        © Copyright 2023 Everest Momo Pvt. Ltd. All Rights Reserved.
-      </p>
-    </footer>
+        <div className="mb-6 sm:mb-6 md:mb-0">
+        <h2 className="text-[18px] sm:text-[18px] md:text-[25px] text-green-700 hover:text-green-700 font-bold mb-4">Legals</h2>
+            <ul>
+            <NavLink to="/"><li className="text-[15px] sm:text-[15px] md:text-[16px] font-primary-head text-[#252D43] mb-2">Terms & Conditions</li></NavLink>
+            <NavLink to="/"><li className="text-[15px] sm:text-[15px] md:text-[16px] font-primary-head text-[#252D43] mb-2">Privacy Policy</li></NavLink>
+            <NavLink to="/contact"><li className="text-[15px] sm:text-[15px] md:text-[16px] font-primary-head text-[#252D43] mb-2">Supports</li></NavLink>
+            </ul>
+        </div>
+
+        <div>
+        <h2 className="text-[18px] sm:text-[18px] md:text-[25px] text-green-700 hover:text-green-700 font-bold mb-4">Follow Us</h2>
+        <ul className="flex md:flex-row flex-wrap gap-x-4 w-48">
+            <NavLink to="https://www.facebook.com/" target="_"><li><FaFacebookF size={37} color="white" className="rounded-full bg-[#A6AEBB] p-2 mb-4"/></li></NavLink>
+            <NavLink to="https://www.linkedin.com/" target="_"><li><FaLinkedinIn size={37} color="white" className="rounded-full bg-[#A6AEBB] p-2 mb-4"/></li></NavLink>
+            <NavLink to="https://x.com/" target="_"><li><FaTwitter size={37} color="white" className="rounded-full bg-[#A6AEBB] p-2 mb-4"/></li></NavLink>
+            <NavLink to="https://www.youtube.com/" target="_"><li><FaYoutube size={37} color="white" className="rounded-full bg-[#A6AEBB] p-2"/></li></NavLink>
+            <NavLink to="https://www.instagram.com/" target="_"><li><FaInstagram size={37} color="white" className="rounded-full bg-[#A6AEBB] p-2"/></li></NavLink>
+            <NavLink to="https://www.tiktok.com/" target="_"><li><FaTiktok size={37} color="white" className="rounded-full bg-[#A6AEBB] p-2"/></li></NavLink>
+        </ul>
+        </div>
+        </div>
+
+        </div>
+        <p className="font-primary-head font-normal text-center text-[14px] sm:text-[14px] md:text-[15px] text-[#6B788E] tracking-wider py-9">Copyright © 2025 Momo Ghar Pvt Ltd. All Rights Reserved.</p>
+        </div>
+        </>
   );
 }
 

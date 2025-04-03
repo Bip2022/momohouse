@@ -1,41 +1,26 @@
 import shafe from "../../assets/shafe.png";
-import "@fontsource/allura"; // This import is fine to keep for font loading
+import "@fontsource/allura"; // Font loading
 
 function First() {
   return (
-    <section className="flex flex-col md:flex-row justify-between items-center sm:px-12 md:px-16 lg:px-24 md:py-16 bg-gray-50">
-       <div className="px-4 text-left md:w-1/2 mb-2 md:mb-0">
-              <h1
-                className="  text-[40px] sm:text-[48px] md:text-[56px] font-allura text-teal-700 mb-6"
-                style={{
-                  width: '500px',
-                  height: '67px',
-                }}
-              >
-                Allergy Advice
-              </h1>
-              <p className="text-[18px] sm:text-[20px] md:text-[24px] font-proxima font-[300] text-gray-600 mb-6 leading-[24px] tracking-[0.12em]">
-               AT OUR RESTAURANT
-              </p>
-      
-              {/* Updated paragraph for "We’re more than just momos." */}
-              <p className=" text-gray-600  text-[25px] sm:text-[28px] md:text-[31px] font-proxima font-[600] pr-36 leading-[37.2px]">
-               We use the freshest and highest quality ingredients in all our dishes,
-              </p>
-      
-              {/* Updated paragraph for "We’re a full-service dining experience." */}
-              <p className="  text-orange-500  text-[25px] sm:text-[28px] md:text-[31px] font-proxima font-[600] mb-4 pr-32 pb-2leading-[37.2px]">
-            and offer transparency in our ingredient labeling.
-              </p>
-            </div>
+    <section className="flex flex-col md:flex-row justify-between items-center px-4 md:px-10 py-8 md:py-12 bg-gray-50">
+      <div className="text-left md:w-1/2 mb-6 md:mb-0 px-4">
+        <h1 className="text-[32px] xl:text-[52px] md:text-[36px] font-allura text-teal-700 mb-4">
+          Allergy Advice
+        </h1>
+        <p className="text-[16px] md:text-[18px] font-proxima font-light text-gray-600 mb-4 leading-[24px] tracking-wide">
+          AT OUR RESTAURANT
+        </p>
+        <p className="text-gray-800 text-[20px] md:text-[22px] font-proxima font-semibold leading-[32px] md:leading-[34px] lg:whitespace-pre-line">
+          We use the freshest and highest quality ingredients in all our dishes,<span className="text-orange-600 ">and offer transparency in our ingredient labeling.</span> 
+        </p>
+      </div>
 
-      <div className="  py-4 flex justify-end items-center" style={{ width: '500px', height: '520px' }}>
-        {/* Enlarged shafe image */}
+      <div className="w-full max-w-xs md:max-w-sm flex justify-center items-center py-4">
         <img
           src={shafe}
           alt="Chef Image"
-          className="w-full h-full object-cover"
-          style={{ width: '92%', height: '100%' }}
+          className="w-[90%] h-auto object-cover rounded-lg"
         />
       </div>
     </section>
@@ -43,4 +28,3 @@ function First() {
 }
 
 export default First;
-

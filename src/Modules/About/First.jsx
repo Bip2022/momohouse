@@ -1,51 +1,35 @@
+import shafeg from "../../assets/shafegirl.png";
+import "@fontsource/allura";
 
+function First() {
+  return (
+    <section className="  px-4 flex flex-col md:flex-row justify-between items-center  sm:px-6 md:px-12 lg:px-24 py-8 md:py-16 bg-gray-50">
+      <div className=" w-full md:w-1/2 mb-6 md:mb-0 text-left md:text-left">
+        <h1 className="text-[30px] sm:text-[40px] md:text-[48px] lg:text-[56px] font-allura text-teal-700 mb-4 lg:mb-6">
+          About Us
+        </h1>
+        <p className="text-[14px] sm:text-[18px] md:text-[20px] lg:text-[24px] font-proxima font-[300] text-gray-600 mb-4 leading-[1.5] tracking-wide">
+          WE PRIDE OURSELF ON
+        </p>
 
+        <p className="text-orange-500 text-[18px] sm:text-[22px] md:text-[25px] lg:text-[28px] font-proxima font-[700]   md:px-0 leading-[1.4]">
+          Our authentic momo recipes
+        </p>
 
-      import shafeg from "../../assets/shafegirl.png";
-      import "@fontsource/allura"; // This import is fine to keep for font loading
-      
-      function First() {
-        return (
-          <section className="flex flex-col md:flex-row justify-between items-center sm:px-12 md:px-16 lg:px-24 md:py-16 bg-gray-50">
-            <div className="px-4 text-left md:w-1/2 mb-2 md:mb-0">
-              <h1
-                className="  text-[40px] sm:text-[48px] md:text-[56px] font-allura text-teal-700 mb-6"
-                style={{
-                  width: '500px',
-                  height: '67px',
-                }}
-              >
-                About Us
-              </h1>
-              <p className="text-[18px] sm:text-[20px] md:text-[24px] font-proxima font-[300] text-gray-600 mb-6 leading-[24px] tracking-[0.12em]">
-               WE PRIDE OURSELF ON
-              </p>
-      
-              {/* Updated paragraph for "We’re more than just momos." */}
-              <p className=" text-orange-500  text-[25px] sm:text-[28px] md:text-[31px] font-proxima font-[700] pr-28 leading-[37.2px]">
-               Our authentic momo recipes
-              </p>
-      
-              {/* Updated paragraph for "We’re a full-service dining experience." */}
-              <p className=" text-gray-600 text-[25px] sm:text-[28px] md:text-[31px] font-proxima font-[700] mb-4 pr-32 pb-2leading-[37.2px]">
-               passed down through generations
-              </p>
-            </div>
-      
-            <div className="  py-4 flex justify-end items-center" style={{ width: '500px', height: '520px' }}>
-              {/* Enlarged shafe image */}
-              <img
-                src={shafeg}
-                alt="Chef Image"
-                className="w-full h-full object-cover"
-                style={{ width: '92%', height: '100%' }}
-              />
-            </div>
-          </section>
-        );
-      }
-      
-      export default First;
-      
-      
- 
+        <p className="text-gray-600 text-[20px] sm:text-[22px] md:text-[25px] lg:text-[28px] font-proxima font-[700] mb-4  md:px-0 leading-[1.4]">
+          passed down through generations
+        </p>
+      </div>
+
+      <div className=" w-full md:w-1/2 flex justify-center items-center">
+        <img
+          src={shafeg}
+          alt="Chef Image"
+          className="w-[90%] max-w-[400px] sm:max-w-[450px] md:max-w-[500px] h-auto object-cover"
+        />
+      </div>
+    </section>
+  );
+}
+
+export default First;

@@ -9,8 +9,8 @@ function Button({ title }) {
         onClick={() => {
           Navigate("/menu");
         }}
-        className="bg-green-800 flex  
-                  rounded-2xl justify-center items-center mt-5 h-10 px-5 text-white "
+        className="bg-green-800 flex  md:mt-8 sm:text-[12px] md:text-[14px] text-[8px] 
+                  rounded-2xl justify-center items-center sm:mt-8  mt-5 h-10 px-5 text-white "
       >
         {title} <GoArrowRight className="ml-2" />
       </button>

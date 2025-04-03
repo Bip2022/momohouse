@@ -22,24 +22,24 @@ function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
+    <div className=" flex items-center justify-center  bg-gray-100 px-4 sm:px-6 lg:px-8 py-6  sm:py-12">
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-8 rounded-xl shadow-md border border-gray-300 w-full max-w-sm"
+        className="bg-white p-5 sm:p-8 rounded-xl shadow-md border border-gray-300 w-full max-w-xs sm:max-w-sm md:max-w-md"
       >
-        <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
-         Login
+        <h2 className="text-xl sm:text-2xl font-bold text-center mb-3 sm:mb-6 text-gray-800">
+          Login
         </h2>
 
         {/* Error Message */}
         {error && (
-          <div className="bg-red-100 text-red-700 p-3 rounded-md mb-4 text-center">
+          <div className="bg-red-100 text-red-700 p-2 sm:p-3 rounded-md mb-2 sm:mb-4 text-center">
             {error}
           </div>
         )}
 
         {/* Email Input */}
-        <div className="mb-4">
+        <div className="mb-2 sm:mb-4">
           <label
             htmlFor="email"
             className="block text-sm font-medium text-gray-600 mb-1"
@@ -57,7 +57,7 @@ function Login() {
         </div>
 
         {/* Password Input */}
-        <div className="mb-4">
+        <div className="mb-2 sm:mb-4">
           <label
             htmlFor="password"
             className="block text-sm font-medium text-gray-600 mb-1"
@@ -77,15 +77,15 @@ function Login() {
         {/* Login Button */}
         <button
           type="submit"
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition mb-4"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition mb-2 sm:mb-4"
         >
           Login
         </button>
 
         {/* Divider */}
-        <div className="flex items-center my-4">
+        <div className="flex items-center my-2 sm:my-4">
           <div className="flex-1 border-t border-gray-300"></div>
-          <span className="mx-4 text-gray-500">OR</span>
+          <span className="mx-2 sm:mx-4 text-gray-500 text-sm sm:text-base">OR</span>
           <div className="flex-1 border-t border-gray-300"></div>
         </div>
 
@@ -100,8 +100,8 @@ function Login() {
         </button>
 
         {/* Signup Link */}
-        <p className="mt-6 text-center text-gray-600">
-          Don't have an account?{" "}
+        <p className="mt-3 sm:mt-6 text-center text-gray-600 text-sm sm:text-base">
+          Don't have an account? {" "}
           <a href="/signup" className="text-blue-500 hover:underline">
             Sign up
           </a>

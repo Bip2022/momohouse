@@ -10,323 +10,161 @@ function Seventh() {
   const [last, setLast] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [message, setMessage] = useState("");
-  const [serviceType, setServiceType] = useState("");
 
   const formHandle = (e) => {
     e.preventDefault();
-    console.log({ name, last, email, phone, serviceType, message });
+    console.log({ name, last, email, phone });
   };
 
   return (
-    <div className="mt-10"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        padding: "20px",
-        gap: "20px",
-      }}
-    >
-      {/* Header Section */}
-      <div style={{ textAlign: "center" }}>
-        <h3
-          style={{
-            fontFamily: "Proxima Nova, sans-serif",
-            fontWeight: 700,
-            fontSize: "39px",
-            color: "#000",
-          }}
-        >
-          Get <span style={{ color: "#ff6600" }}>In Touch</span>
-        </h3>
-        <p
-          style={{
-            fontFamily: "Proxima Nova",
-            fontWeight: 700,
-            fontSize: "25px",
-            color: "#0C6967",
-            marginTop: "10px",
-          }}
-        >
-          Our friendly team would love to hear from you
-        </p>
-      </div>
+    <div className="w-[100%] m-auto px-4 py-7 sm:px-4 md:px-14 sm:py-7 md:py-14 ">
+      {/* Left Side (Map) */}
+      <h2 className="font-primary-head font-bold text-[29px] md:text-[39px] text-center tracking-wide">
+        Get <span className="text-[#D95103]">In Touch</span>
+      </h2>
+      <p className="font-primary-head font-semibold text-[19px]  sm:text-[19px] md:text-[25px] text-[#0C6967] text-center tracking-wide">
+        Our Friendly team would love to hear from you
+      </p>
 
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "flex-start",
-          gap: "40px",
-          flexWrap: "wrap", // Allow wrapping for smaller screens
-        }}
-      >
-        {/* Left Side */}
-        <div
-          style={{
-            width: "461px",
-            height: "700px",
-            borderRadius: "16px",
-            padding: "32px",
-            backgroundColor: "#004d4d",
-            color: "white",
-            display: "flex",
-            flexDirection: "column",
-            gap: "40px",
-            flex: "1 1 300px", // Allow this column to shrink and grow based on screen size
-          }}
-        >
-          {/* Address Section */}
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                marginBottom: "5px",
-              }}
-            >
-              <CiLocationOn style={{ marginRight: "5px" }} />
-              <h2 style={{ marginBottom: 0 }}>Our Address</h2>
+      <div className="mt-14 flex flex-col lg:flex-row justify-between shadow-lg p-6 md:p-10 rounded-lg gap-10">
+        {/* Contact Details Section */}
+        <div className="bg-[#0C6967] p-6 md:p-9 rounded-lg w-full lg:w-[35%] text-white font-primary-head">
+          {/* Address */}
+          <div>
+            <div className="flex items-start">
+              <CiLocationOn size={25} />
+              <h5 className="font-medium text-[19px] ml-3">Our Address:</h5>
             </div>
-            <p style={{ marginLeft: "25px" }}>
+            <p className="text-[17px] md:text-[20px] italic font-light tracking-wide my-6">
               New Baneshwor, Kathmandu, Bagmati, Nepal
             </p>
           </div>
 
-          {/* Contacts Section */}
-          <div
-            style={{ display: "flex", flexDirection: "column", gap: "10px" }}
-          >
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                marginBottom: "10px",
-              }}
-            >
-              <IoCallOutline style={{ marginRight: "5px" }} />
-              <h2 style={{ marginBottom: 0 }}>Our Contacts</h2>
+          {/* Contact Numbers */}
+          <div className="mt-10">
+            <div className="flex items-start">
+              <IoCallOutline size={25} />
+              <h5 className="font-medium text-[19px] ml-3">Our Contacts:</h5>
             </div>
-            <div style={{ display: "flex", flexDirection: "row", gap: "40px" }}>
-              <div>
-                <p style={{ marginLeft: "25px", marginBottom: "2px" }}>
-                  <strong>Mobile:</strong>
-                </p>
-                <p style={{ marginLeft: "25px" }}>9805689789</p>
-                <p style={{ marginLeft: "25px" }}>9841275897</p>
+            <div className="flex flex-col md:flex-row justify-between mt-5">
+              <div className="w-full md:w-1/2 font-medium text-[19px]">
+                <h3>Mobile</h3>
+                <p className="mt-3 italic text-[17px]">984 2567 219</p>
+                <p className="mt-3 italic text-[17px]">982 6756 267</p>
               </div>
-              <div>
-                <p style={{ marginLeft: "25px", marginBottom: "2px" }}>
-                  <strong>Landline</strong>
-                </p>
-                <p style={{ marginLeft: "25px" }}>01-4783972</p>
+              <div className="w-full md:w-1/2 font-medium text-[19px]">
+                <h3 className="mt-4 md:mt-0">Landline</h3>
+                <p className="mt-3 italic text-[17px]">01 4738972</p>
               </div>
             </div>
           </div>
 
-          {/* Service Time Section */}
-          <div
-            style={{ display: "flex", flexDirection: "column", gap: "10px" }}
-          >
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                marginBottom: "10px",
-              }}
-            >
-              <IoMdTime style={{ marginRight: "5px" }} />
-              <h2 style={{ marginBottom: 0 }}>Our Service Time</h2>
+          {/* Service Time */}
+          <div className="mt-10">
+            <div className="flex items-start">
+              <IoMdTime size={25} />
+              <h5 className="font-medium text-[19px] ml-3">Our Service Time:</h5>
             </div>
-            <div style={{ display: "flex", flexDirection: "row", gap: "40px" }}>
-              <div>
-                <p style={{ marginLeft: "25px", marginBottom: "2px" }}>
-                  <strong>MON - FRI:</strong>
-                </p>
-                <p style={{ marginLeft: "25px" }}>10 am - 8 pm</p>
+            <div className="flex flex-col md:flex-row justify-between mt-5">
+              <div className="w-full md:w-1/2 font-medium text-[19px]">
+                <h3 className="uppercase text-[17px]">Mon - Fri</h3>
+                <p className="mt-3 italic text-[17px]">10 AM - 8 PM</p>
               </div>
-              <div>
-                <p style={{ marginBottom: "2px" }}>
-                  <strong>SAT - SUN:</strong>
-                </p>
-                <p>Closed</p>
+              <div className="w-full md:w-1/2 font-medium text-[19px]">
+                <h3 className="uppercase mt-4 md:mt-0 text-[17px]">Sat - Sun</h3>
+                <p className="mt-3 italic text-[17px]">Closed</p>
               </div>
             </div>
           </div>
 
-          {/* Social Networks Section */}
-          <div style={{ marginTop: "40px" }}>
-            <h2 style={{ marginBottom: "20px" }}>
-              Get in touch on social networks
+          {/* Social Media */}
+          <div className="my-10">
+            <h2 className="text-[16px] md:text-[20px] text-white font-primary-head font-normal">
+              Get in Touch at Social Media
             </h2>
-            <div style={{ display: "flex", gap: "10px" }}>
-              <NavLink to="https://www.facebook.com/" target="_">
-                <FaFacebookF style={{ fontSize: "24px", cursor: "pointer" }} />
-              </NavLink>
-              <NavLink to="https://www.instagram.com/" target="_">
-                <FaInstagram style={{ fontSize: "24px", cursor: "pointer" }} />
-              </NavLink>
-              <NavLink to="https://www.tiktok.com/" target="_">
-                <FaTiktok style={{ fontSize: "24px", cursor: "pointer" }} />
-              </NavLink>
+            <div className="flex gap-4 mt-5">
+              <NavLink to="#" target="_"><FaFacebookF size={35} /></NavLink>
+              <NavLink to="#" target="_"><FaInstagram size={35} /></NavLink>
+              <NavLink to="#" target="_"><FaTiktok size={37} /></NavLink>
             </div>
           </div>
         </div>
 
-        {/* Right Side */}
-        <div
-          style={{
-            height: "700px",
-            width: "50%",
-            marginLeft: "20px",
-            padding: "20px",
-            backgroundColor: "#f9f9f9",
-            borderRadius: "8px",
-            flex: "1 1 300px", // Allow this column to shrink and grow based on screen size
-          }}
-        >
-          <form onSubmit={formHandle}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "15px",
-              marginTop: "20px",
-            }}
-          >
-            <div style={{ display: "flex ", gap: "10px" }}>
-              <div>
-                <p>First Name</p>
-                <input value={name}
+        {/* Contact Form Section */}
+        <div className="w-full lg:w-[65%]">
+        <form onSubmit={formHandle} className="flex flex-col gap-4 mt-6">
+          <div className="flex flex-col sm:flex-row md:flex-col lg:flex-col xl:flex-col 2xl:flex-col gap-4 sm:gap-8">
+            <div className="w-full">
+              <label htmlFor='name' className="font-medium text-[16px] text-[#5c5c5c]">First Name <br/>
+                <input 
                   onChange={(e) => setName(e.target.value)}
-                  type="text"
-                  placeholder="First Name"
-                  style={{
-                    padding: "10px",
-                    borderRadius: "5px",
-                    border: "1px solid #ccc",
-                    width: "230px",
-                  }}
-                />
-              </div>
-              <div>
-                <p>Last Name</p>
-                <input value={last}
-                  onChange={(e) => setLast(e.target.value)}
-                  type="text"
-                  placeholder="Last Name"
-                  style={{
-                    padding: "10px",
-                    borderRadius: "5px",
-                    border: "1px solid #ccc",
-                    width: "230px",
-                  }}
-                />
-              </div>
+                  type='text' id="name" placeholder='Enter Your First Name' 
+                  className="border border-gray-300 focus:outline-0 p-3 w-full rounded mt-2 placeholder:text-[15px]"/>
+              </label>
             </div>
+            <div className="w-full">
+              <label htmlFor='last' className="font-medium text-[16px] text-[#5c5c5c]">Last Name <br/>
+                <input 
+                  onChange={(e) => setLast(e.target.value)}
+                  type='text' id="last" placeholder='Enter Your Last Name'
+                  className="border border-gray-300 focus:outline-0 p-3 w-full rounded mt-2 placeholder:text-[15px]"/>
+              </label>
+            </div>
+          </div>
 
-            <div>
-              <p>Email</p>
-              <input value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                type="email"
-                placeholder="Email"
-                style={{
-                  padding: "10px",
-                  borderRadius: "5px",
-                  border: "1px solid #ccc",
-                  width: "100%",
-                }}
+          <div>
+            <p className="text-sm sm:text-base">Email</p>
+            <input
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              placeholder="Email"
+              value={email}
+              className="w-full p-2 border border-gray-300 rounded text-sm sm:text-base"
+            />
+          </div>
+
+          <div>
+            <p className="text-sm sm:text-base">What can we do for you?</p>
+            <select className="w-full p-2 border border-gray-300 rounded text-sm sm:text-base">
+              <option value="">Choose</option>
+              <option value="general">General Inquiry</option>
+              <option value="support">Support</option>
+              <option value="feedback">Feedback</option>
+            </select>
+          </div>
+
+          <div>
+            <p className="text-sm sm:text-base">Phone Number</p>
+            <div className="flex items-center">
+              <span className="p-2 border-l border-t border-b bg-gray-100 text-gray-600 rounded-l text-sm sm:text-base">
+                🇳🇵 +977
+              </span>
+              <input
+                onChange={(e) => setPhone(e.target.value)}
+                type="tel"
+                placeholder="Phone Number"
+                value={phone}
+                className="flex-1 p-2 border border-gray-300 rounded-r text-sm sm:text-base"
               />
             </div>
+          </div>
 
-            <div>
-              <p>What can we do for you?</p>
-              <select
-                value={serviceType}
-                onChange={(e) => setServiceType(e.target.value)}
-                style={{
-                  padding: "10px",
-                  borderRadius: "5px",
-                  border: "1px solid #ccc",
-                  width: "100%",
-                }}
-              >
-                <option value="">Choose</option>
-                <option value="general">General Inquiry</option>
-                <option value="support">Support</option>
-                <option value="feedback">Feedback</option>
-              </select>
-            </div>
+          <div>
+            <p className="text-sm sm:text-base">Message</p>
+            <textarea
+              placeholder="Message"
+              rows="4"
+              className="w-full p-2 border border-gray-300 rounded text-sm sm:text-base"
+            ></textarea>
+          </div>
 
-            <div>
-              <p>Phone Number</p>
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <span
-                  style={{
-                    padding: "10px",
-                    borderRadius: "5px 0 0 5px",
-                    border: "1px solid #ccc",
-                    backgroundColor: "#f1f1f1",
-                  }}
-                >
-                  🇳🇵 +977
-                </span>
-                <input
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  type="tel"
-                  placeholder="Phone Number"
-                  style={{
-                    flex: 1,
-                    padding: "10px",
-                    borderRadius: "0 5px 5px 0",
-                    border: "1px solid #ccc",
-                  }}
-                />
-              </div>
-            </div>
-
-            <div>
-              <p>Message</p>
-              <textarea
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                placeholder="Message"
-                rows="4"
-                style={{
-                  padding: "10px",
-                  borderRadius: "5px",
-                  border: "1px solid #ccc",
-                  width: "100%",
-                }}
-              ></textarea>
-            </div>
-
-            <button
-              disabled={!name || !last || !email || !phone || !serviceType || !message}
-              type="submit"
-              style={{
-                backgroundColor: !name || !last || !email || !phone || !serviceType || !message ? "#ff6600" : "#ccc",
-                cursor: !name || !last || !email || !phone || !serviceType || !message ? "not-allowed" : "pointer",
-                width: "256px",
-                height: "59px",
-                borderRadius: "100px",
-                padding: "20px 40px",
-                color: "white",
-                border: "none",
-                fontSize: "14px",
-                marginTop: "10px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "8px",
-              }}
-            >
-              Send Message
-            </button>
-          </form>
+          <button
+            type="submit"
+            className="w-full sm:w-[256px] h-[50px] sm:h-[59px] bg-[#ff6600] text-white font-bold rounded-full mt-4 flex justify-center items-center gap-2 text-sm sm:text-base"
+          >
+            Send Message
+          </button>
+        </form>
         </div>
       </div>
     </div>
