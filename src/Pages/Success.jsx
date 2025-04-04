@@ -1,5 +1,4 @@
 import { useSearchParams, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 import success from "../assets/success.png";
 
 function Success() {
@@ -10,20 +9,16 @@ function Success() {
   let decoded = "";
   let x = {};
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      navigate("/menu");
-    }, 5000); // 5000 milliseconds = 5 seconds
-
-    return () => clearTimeout(timer); // Cleanup on unmount
-  }, [navigate]);
-
   try {
     decoded = atob(res);
     x = JSON.parse(decoded);
   } catch (error) {
     console.error("Error decoding data:", error);
   }
+
+  const handleRedirect = () => {
+    navigate("/menu");
+  };
 
   return (
     <div className="w-full flex flex-col items-center justify-center sm:px-8 lg:px-14 text-center font-primary-head">
@@ -46,9 +41,12 @@ function Success() {
           <strong>Transaction Code:</strong> {x.transaction_code || "N/A"}
         </p>
       </div>
-      <p className="mt-4 text-gray-600 text-sm md:text-base">
-        Redirecting to menu page in 5 seconds...
-      </p>
+      <button
+        onClick={handleRedirect}
+        className="mt-6 bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors duration-300 text-sm sm:text-base md:text-lg"
+      >
+        Redirect to Menu Section
+      </button>
     </div>
   );
 }
