@@ -93,7 +93,7 @@ function Cart() {
             <div className="space-y-4">
               <div className="flex justify-between">
                 <span>Items ({totalItems}):</span>
-                <span>₹{subtotal}</span>
+                <span>Rs:{subtotal}</span>
               </div>
               <div className="flex justify-between">
                 <span>Shipping:</span>
