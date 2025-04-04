@@ -11,7 +11,7 @@ createRoot(document.getElementById('root')).render(
  <BrowserRouter>
  <CartProvider>
  <Auth0Provider
-    domain="dev-3a3jih75x0t5i6tv.us.auth0.com"
+    domain="dev-3a3jih75x0t5i6tv.us.auth0.com"   
     clientId="9p9VgDqaFNnJMC0j5kq5hdJU0rBRhrGh"
     authorizationParams={{
       redirect_uri: window.location.origin
