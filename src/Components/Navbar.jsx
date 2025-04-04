@@ -12,6 +12,15 @@ function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = () => setMenuOpen(false);
 
+  const handleLogout = () => {
+    logout({ 
+      logoutParams: {
+        returnTo: window.location.origin
+      }
+    });
+    closeMenu();
+  };
+
   return (
     <div className="border-b-2 border-gray-500 overflow-x-hidden">
       <div className="w-full m-auto px-4 sm:px-4 md:px-4 lg:px-5 xl:px-14 2xl:px-14">
@@ -27,7 +36,6 @@ function NavBar() {
 
           {/* Mobile Menu Trigger with Cart + Profile */}
           <div className="xl:hidden flex items-center gap-x-3">
-            {/* Cart Icon */}
             <NavLink to="/cart" className="relative">
               <span className="absolute -top-2.5 -right-3 text-[#D95103]">{totalItems}</span>
               <FaCartArrowDown 
@@ -36,7 +44,6 @@ function NavBar() {
               />
             </NavLink>
             
-            {/* Profile Icon - Mobile */}
             {isAuthenticated && user?.picture ? (
               <NavLink className="rounded-full flex justify-center items-center" to="/profile">
                 <img className="h-8 rounded-full" src={user.picture} alt="User Profile" />
@@ -47,7 +54,6 @@ function NavBar() {
               </NavLink>
             )}
             
-            {/* Menu Button */}
             <button className="text-[#0C6967] p-2" onClick={() => setMenuOpen(!menuOpen)}>
               <span className="font-bold text-2xl">&#9776;</span>
             </button>
@@ -61,12 +67,9 @@ function NavBar() {
             <NavLink to="/allergyadvice" className="hover:text-green-600">Allergy Advice</NavLink>
 
             {isAuthenticated ? (
-              <NavLink
-                onClick={() => logout({ returnTo: window.location.origin })}
-                className="hover:text-red-600"
-              >
+              <button onClick={handleLogout} className="hover:text-red-600">
                 LogOut
-              </NavLink>
+              </button>
             ) : (
               <div className="space-x-3">
                 <NavLink to="/login" className="hover:text-green-600">Login</NavLink>
@@ -85,15 +88,15 @@ function NavBar() {
 
           {/* Desktop Right Section */}
           <div className="hidden xl:flex items-center gap-x-4">
-            <NavLink to="https://www.facebook.com/" target="_" aria-label="Facebook">
+            <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" aria-label="Facebook">
               <FaFacebookF size={34} color="white" className="rounded-full bg-[#A6AEBB] p-2" />
-            </NavLink>
-            <NavLink to="https://www.tiktok.com/" target="_" aria-label="TikTok">
+            </a>
+            <a href="https://www.tiktok.com/" target="_blank" rel="noreferrer" aria-label="TikTok">
               <FaTiktok size={34} color="white" className="rounded-full bg-[#A6AEBB] p-2" />
-            </NavLink>
-            <NavLink to="https://www.instagram.com/" target="_" aria-label="Instagram">
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram">
               <FaInstagram size={34} color="white" className="rounded-full bg-[#A6AEBB] p-2" />
-            </NavLink>
+            </a>
             <NavLink 
               className="bg-[#D95103] rounded-3xl text-[14px] p-3 w-32 flex justify-center items-center text-white hover:bg-[#D95103]" 
               to="/contact"
@@ -101,7 +104,6 @@ function NavBar() {
               Contact Us
             </NavLink>
             
-            {/* Profile Icon - Desktop (only show when authenticated) */}
             {isAuthenticated && (
               <NavLink to="/profile">
                 <img className="h-8 rounded-full" src={user.picture} alt="User Profile" />
@@ -111,7 +113,7 @@ function NavBar() {
         </div>
 
         {/* Mobile Menu Content */}
-        <div className={`xl:hidden flex items-center gap-4 absolute top-16 left-0 w-full z-50 mt-10 bg-[#F7F9FC] shadow-lg ${menuOpen ? 'block' : 'hidden'}`}>
+        <div className={`xl:hidden ${menuOpen ? 'block' : 'hidden'} absolute top-16 left-0 w-full z-50 mt-10 bg-[#F7F9FC] shadow-lg`}>
           <div className="flex flex-col items-center gap-y-4 py-5 ml-4 w-full">
             <NavLink to="/about" className="text-lg font-medium hover:text-green-600" onClick={closeMenu}>About Us</NavLink>
             <NavLink to="/menu" className="text-lg font-medium hover:text-green-600" onClick={closeMenu}>Our Menu</NavLink>
@@ -120,15 +122,9 @@ function NavBar() {
             <NavLink to="/contact" className="text-lg font-medium hover:text-green-600" onClick={closeMenu}>Contact Us</NavLink>
 
             {isAuthenticated ? (
-              <NavLink
-                onClick={() => {
-                  logout({ returnTo: window.location.origin });
-                  closeMenu();
-                }}
-                className="text-lg text-red-600"
-              >
+              <button onClick={handleLogout} className="text-lg text-red-600">
                 LogOut
-              </NavLink>
+              </button>
             ) : (
               <div className="space-y-3">
                 <NavLink to="/login" className="text-lg font-medium text-green-800 hover:text-green-600" onClick={closeMenu}>Login</NavLink>

@@ -53,8 +53,8 @@ function Second() {
             >
               <NavLink to={`/productdescription/${product.id}`}>
                 <img
-                  src={product.image || "https://via.placeholder.com/150"}
-                  alt={product.name || "Product"}
+                  src={product.image }
+                  alt=""
                   className="h-28 w-28 rounded-xl"
                 />
                 <p className="text-center mt-2">{product.name || "Unnamed Product"}</p>

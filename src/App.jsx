@@ -35,7 +35,7 @@ function App() {
         <Route path="/" element={<Momo />} />
         <Route path="/about" element={<About />} />
         <Route path="/allergyadvice" element={<AllergyAdvice />} />
-        <Route path="/menu" element={<Protected Comp={Menu}/>} />
+        <Route path="/menu" element={<Protected Comp={Menu} />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/services" element={<Services />} />
         <Route path="/cart" element={< Protected Comp={Cart}/>} />
