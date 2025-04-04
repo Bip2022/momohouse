@@ -5,91 +5,90 @@ import { cartContext } from "../Context/CartProvider";
 function ProductDescription() {
   const { dispatch } = useContext(cartContext);
   const { id } = useParams();
-  const [product, setProduct] = useState(null);
-  const [error, setError] = useState(null);
+  const [products, setProducts] = useState(null);  // Changed to null
+  const [error, setError] = useState(null);  // Added error state
+  console.log(id);
 
-  const fetchProduct = async () => {
+  // Function to fetch product data
+  const getSingleProduct = async () => {
     try {
-      const response = await fetch(`https://dummyjson.com/recipes/${id}`);
-      if (!response.ok) throw new Error('Product not found');
-      const data = await response.json();
-      setProduct(data);
-    } catch (err) {
-      setError(err.message);
-      console.error("Fetch error:", err);
+      let res = await fetch(`https://dummyjson.com/recipes/${id}`);
+      res = await res.json();
+      setProducts(res); 
+      console.log(res);
+       // Set product data to state
+    } catch (e) {
+      console.log("Error while fetching data", e); // Corrected error setting
     }
   };
 
   useEffect(() => {
-    fetchProduct();
+    getSingleProduct();
   }, [id]);
 
-  if (error) return <div className="text-center text-red-500 p-8">{error}</div>;
-  if (!product) return <div className="text-center p-8">Loading...</div>;
+ 
 
   return (
-    <div className="max-w-6xl mx-auto p-4 md:p-8">
-      <div className="flex flex-col md:flex-row gap-8 bg-white rounded-lg shadow-lg">
-        {/* Product Image Section */}
-        <div className="md:w-1/2 p-6 flex flex-col items-center">
-          <img
-            src={product.image}
-            alt={product.name}
-            className="w-48 h-48 rounded-full object-cover shadow-xl"
-          />
-          <div className="mt-6 text-center">
-            <h1 className="text-2xl font-bold mb-2">{product.name}</h1>
-            <p className="text-xl text-[#D95103] font-semibold mb-3">
-              ₹{product.caloriesPerServing}
-            </p>
-            <div className="flex justify-center gap-4">
-              <button
-                onClick={() => dispatch({ type: "AddToCart", payload: product })}
-                className="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition"
-              >
-                Add to Cart
-              </button>
-              <button className="bg-black text-white px-6 py-2 rounded hover:bg-gray-800 transition">
-                Buy Now
-              </button>
-            </div>
-          </div>
-        </div>
+    <>
+      <div className="w-[100%] m-auto px-4 sm:px-4 md:px-4 lg:px-14 py-7 sm:py-7 md:py-7 lg:py-14">
+        {products ? (
+          <div className="flex flex-col sm:flex-col md:flex-row justify-around shadow-[0px_6px_21px_0px_rgba(0,_0,_0,_0.1)]">
+            <div className="w-[100%] sm:w-[100%] md:w-[50%] bg-[#fcfbfb] flex flex-col p-5 mb-10 sm:mb-10 md:mb-0">
+              <img
+                src={products.image}
+                className="w-32 sm:w-32 h-32 sm:h-32 m-auto lg:m-0 lg:ml-10 rounded-[50%] shadow-[0px_4px_21px_0px_rgba(0,_0,_0,_0.1)]"
+                alt={products.name || 'Product Image'}  // Added alt text for better accessibility
+              />
+              <div className="flex flex-col ml-0 sm:ml-0 md:ml-10 mt-7">
+                <p className="font-primary-head font-medium text-[16px] mb-1.5">{products.name}</p>
+                <p className="font-primary-head font-bold text-[21px] text-[#D95103] mb-1.5">Rs. {products.caloriesPerServing}</p>
+                <p className="font-primary-head font-medium text-[16px] mb-5">Rating: {products.rating}</p>
+                <div>
+                  <button className="font-primary-head font-medium p-3 bg-black text-white cursor-pointer">
+                    Buy Now
+                  </button>
 
-        {/* Product Details Section */}
-        <div className="md:w-1/2 p-6 bg-gray-50">
-          <div className="space-y-4">
-            <h2 className="text-2xl font-bold text-[#0C6967]">Details</h2>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <p className="font-semibold">Cuisine:</p>
-                <p>{product.cuisine}</p>
-              </div>
-              <div>
-                <p className="font-semibold">Cook Time:</p>
-                <p>{product.cookTimeMinutes} mins</p>
-              </div>
-              <div>
-                <p className="font-semibold">Difficulty:</p>
-                <p>{product.difficulty}</p>
-              </div>
-              <div>
-                <p className="font-semibold">Rating:</p>
-                <p>{product.rating}/5</p>
+                  <button
+                    onClick={() => {
+                      dispatch({ type: "AddToCart", payload: products });
+                    }}
+                    className="font-primary-head font-medium p-3 ml-4 bg-red-600 text-white cursor-pointer"
+                  >
+                    Add To Cart
+                  </button>
+                  
+                </div>
               </div>
             </div>
 
-            <h3 className="text-xl font-bold text-[#0C6967] mt-6">Ingredients</h3>
-            <ul className="list-disc pl-6 columns-2">
-              {product.ingredients.map((ingredient, index) => (
-                <li key={index} className="mb-2">{ingredient}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
+            <div className="bg-[#f5f4f4] p-5 w-[100%] sm:w-[100%] md:w-[50%]">
+              <div className="font-primary-head text-[15px] tracking-wide">
+                <h1 className="text-[19px] sm:text-[19px] md:text-[23px] text-[#0C6967] font-extrabold">Product Description</h1>
+                <p className="mb-1 font-medium">Meal-Type: {products.mealType[0]}</p>
+                <p className="mb-1 font-medium">Cook Time: {products.cookTimeMinutes} Minutes</p>
+                <p className="mb-1 font-medium">Cuisine: {products.cuisine}</p>
+                <p className="mb-1 font-medium">Difficulty: {products.difficulty}</p>
+              </div>
+
+              <h1 className="font-primary-head text-[19px] sm:text-[19px] md:text-[23px] mt-4 text-[#0C6967] font-extrabold tracking-wide">
+                Ingredients:
+              </h1>
+              <p className="font-primary-head font-normal mt-2 p-1 flex flex-col flex-wrap ">
+                {
+                  products.ingredients.map((ingredient) => (
+                    <li key={ingredient}>{ingredient}</li>
+                  ))}
+                  </p>
+                  </div>
+                  </div>
+                ) : (
+                
+          <div className="font-primary-head font-normal text-[17px] text-center">Loading...</div>
+        )}
       </div>
-    </div>
+    </>
   );
 }
 
 export default ProductDescription;
+
