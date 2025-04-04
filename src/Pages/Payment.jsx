@@ -103,7 +103,7 @@ function Payment() {
           required
         />
 
-        <div className="mx-5 ">
+        <div className="mx-2 sm:mx-2 md:mx-2 lg:mx-5 xl:mx-5 2xl:mx-5">
           <p className="font-bold text-[17px] mb-2 ">Total Amount: {totalAmount}</p>
           <p className="font-bold text-[17px] mb-2">
             Total Item: <span className="text-[#D95103]">{totalItems}</span>
