@@ -1,4 +1,5 @@
 import { createContext, useReducer } from "react";
+import { ToastContainer, toast } from 'react-toastify';
 
 // Creating context for the cart
 export const cartContext = createContext();
@@ -23,6 +24,7 @@ const cartReducer = (state, action) => {
           }
           return item;
       });
+      toast.info(`Increased quantity for ${action.payload.name}`);
         return {
           ...state,
           cartItems: updatedCartItem,
@@ -34,7 +36,7 @@ const cartReducer = (state, action) => {
         const updatedCart = [...state.cartItems, newCartItem];
         
         // Optional: Show a message or use a toast notification instead of `alert()`
-        alert(`Added to the cart ${newCartItem.name} `);
+        toast.success(`Added to the cart ${newCartItem.name} to cart`);
         
         return {
           ...state,
@@ -49,7 +51,11 @@ const cartReducer = (state, action) => {
           return { ...item, qty: item.qty + 1 }
        }
        return item;
-      })
+      });
+      toast.info(`Increased quantity for ${
+        state.cartItems.find(item => item.id === action.payload.id).name
+      }`); 
+
       return {
         ...state,
         cartItems: updatedCartItems,
@@ -65,6 +71,9 @@ const cartReducer = (state, action) => {
 }
         return item;
     });
+    toast.warning(`Decreased quantity for ${
+      state.cartItems.find(item => item.id === action.payload.id).name
+    }`);
       return {
         ...state,
         cartItems: updatedCartItems,
@@ -72,7 +81,9 @@ const cartReducer = (state, action) => {
     }
 
     case "Delete": {
+      const deletedItem = state.cartItems.find(item => item.id === action.payload.id);
       const updatedCartItems = state.cartItems.filter((item) => item.id !== action.payload.id);
+      toast.error(`Removed ${deletedItem.name} from cart`);
       return {
         ...state,
         cartItems: updatedCartItems,
@@ -100,6 +111,18 @@ export const CartProvider = ({ children }) => {
   return (
     <cartContext.Provider value={{ state, dispatch }}>
       {children}
+      <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </cartContext.Provider>
   );
 };
