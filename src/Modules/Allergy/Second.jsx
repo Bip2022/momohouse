@@ -8,11 +8,7 @@ function Second() {
   return (
     <div className="px-4 sm:px-6 relative w-full min-h-screen flex flex-col items-center justify-center">
       {/* Background Images */}
-      <img 
-  src={img1} 
-  alt="background" 
-  className="absolute lg:left-[200px] left-[18px] md:left-[60px] sm:left-[30px] xl:left-[300px] 2xl:left-[300px] top-[120px] lg:top-[95px] lg:w-[380px] lg:h-[340px] w-[200px] h-[200px]" 
-/>
+      <img src={img1} alt="background" className="absolute  lg:left-[200px] left-[18px] md:left-[60px] sm:left-[30px] xl:left-[300px] 2xl:left-[400px]  top-[120px] lg:top-[95px]  lg:w-[380px] lg:h-[340px] w-[200px] h-[200px]" />
       <img src={img2} alt="background" className="absolute lg:top-[520px] sm:w-[1000px] w-[320px] lg:w-[1400px] xl:w-[1100px] lg:h-[800px]  sm:h-[700px]" />
 <img 
   src={img3} 
