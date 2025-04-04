@@ -78,14 +78,14 @@ function Payment() {
           type="hidden"
           id="success_url"
           name="success_url"
-          value="https://your-vercel-app.vercel.app/success"
+          value="https://momohouse-ten.vercel.app/success"
           required
         />
         <input
           type="hidden"
           id="failure_url"
           name="failure_url"
-          value="https://your-vercel-app.vercel.app/failure"
+          value="https://momohouse-ten.vercel.app/failure"
           required
         />
         <input
