@@ -55,7 +55,7 @@ function Cart() {
                     <div className="w-full sm:w-full md:w-3/4 lg:w-3/4 mt-5">
                       <p className="font-semibold text-sm sm:text-md md:text-lg lg:text-lg">{Item.name}</p>
                       <p className="font-semibold text-lg">
-                        Rs. <span className="text-[#0C6967]">{Item.pricePerServing}</span>
+                        Rs. <span className="text-[#0C6967]">{Item.caloriesPerServing}</span>
                       </p>
                       <button
                         onClick={() => {
