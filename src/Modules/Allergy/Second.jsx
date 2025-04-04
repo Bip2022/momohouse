@@ -8,7 +8,7 @@ function Second() {
   return (
     <div className="px-4 sm:px-6 relative w-full min-h-screen flex flex-col items-center justify-center">
       {/* Background Images */}
-      <img src={img1} alt="background" className="absolute  lg:left-[170px] left-[18px] md:left-[60px] sm:left-[30px]  xl:left-[290px] 2xl:left-[400px]  top-[120px] lg:top-[100px] xl:top-[290px]  2xl:top-[900px] lg:w-[380px] lg:h-[340px] w-[200px] h-[200px]" />
+      <img src={img1} alt="background" className="absolute  lg:left-[170px] left-[10px] md:left-[60px] sm:left-[30px]  xl:left-[290px] 2xl:left-[400px]  top-[120px] lg:top-[100px] xl:top-[290px]  2xl:top-[900px] lg:w-[380px] lg:h-[340px] w-[200px] h-[200px]" />
       <img src={img2} alt="background" className="absolute lg:top-[520px] sm:w-[1000px] w-[320px] lg:w-[1400px] xl:w-[1100px] lg:h-[800px] xl:top-[700px] 2xl:top-[1450px] sm:h-[700px]" />
       <img src={img3} alt="background" className="absolute right-[10px] sm:right-[20px] lg:right-[180px] xl:right-[290px] 2xl:right-[400px] md:right-[50px] lg:top-[1700px] top-[1760px] sm:top-[1590px] 2xl:top-[2330px] lg:bottom-0   w-[150px] lg:w-[230px] lg:h-[260px]" />
 
