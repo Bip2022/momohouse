@@ -1,3 +1,4 @@
+// Cart.jsx
 import { useContext, useEffect } from "react";
 import { cartContext } from "../Context/CartProvider";
 import { MdDelete } from "react-icons/md";
@@ -7,7 +8,6 @@ import cart from '../assets/cart.png';
 function Cart() {
   const { state, dispatch } = useContext(cartContext);
 
-  // Calculate total price
   const calculateTotal = () => {
     return state.cartItems.reduce(
       (total, item) => total + item.caloriesPerServing * item.qty,
@@ -15,10 +15,8 @@ function Cart() {
     );
   };
 
-  // Calculate total items
   const totalItems = state.cartItems.reduce((sum, item) => sum + item.qty, 0);
 
-  // Clear items with quantity 0
   const clearZeroQuantityItems = () => {
     state.cartItems.forEach((item) => {
       if (item.qty === 0) {
@@ -30,12 +28,10 @@ function Cart() {
     });
   };
 
-  // Trigger clearZeroQuantityItems on initial render or cart update
   useEffect(() => {
     clearZeroQuantityItems();
   }, [state.cartItems, dispatch]);
 
-  // Total amount (calculate total and add shipping charge)
   const totalAmount = calculateTotal();
   const shippingCharge = 120;
 
@@ -92,7 +88,6 @@ function Cart() {
                 </div>
               ))}
               
-              {/* Action Buttons Container */}
               <div className="flex gap-2">
                 <button
                   onClick={() => {
@@ -113,7 +108,6 @@ function Cart() {
               </div>
             </div>
 
-            {/* Order Summary */}
             <div className="w-full sm:w-full md:w-full lg:w-1/3 bg-[#f1efef] p-4 sm:p-4 md:p-12 lg:p-8 flex flex-col font-primary-head">
               <h1 className="font-semibold text-lg mb-3">Order Summary</h1>
               <p className="font-normal text-lg mb-1">Shipping Charge: Rs. {shippingCharge}</p>

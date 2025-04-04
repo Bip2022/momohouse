@@ -1,24 +1,25 @@
-import { useContext, useEffect, useState } from "react";
+// ProductDescription.jsx
+import { useContext, useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { cartContext } from "../Context/CartProvider";
 
 function ProductDescription() {
   const { dispatch } = useContext(cartContext);
   const { id } = useParams();
-  const [products, setProducts] = useState(null);  // Changed to null
-  const [error, setError] = useState(null);  // Added error state
-  console.log(id);
+  const [product, setProduct] = useState(null);
+  const [error, setError] = useState(null);
+  const lastClickTime = useRef(0); // Track last click timestamp
 
-  // Function to fetch product data
+  // Fetch product data
   const getSingleProduct = async () => {
     try {
-      let res = await fetch(`https://dummyjson.com/recipes/${id}`);
-      res = await res.json();
-      setProducts(res); 
-      console.log(res);
-       // Set product data to state
+      const res = await fetch(`https://dummyjson.com/recipes/${id}`);
+      if (!res.ok) throw new Error("Failed to fetch product");
+      const data = await res.json();
+      setProduct(data);
     } catch (e) {
-      console.log("Error while fetching data", e); // Corrected error setting
+      console.error("Error fetching product:", e);
+      setError("Failed to load product details.");
     }
   };
 
@@ -26,69 +27,65 @@ function ProductDescription() {
     getSingleProduct();
   }, [id]);
 
- 
+  // Add to cart handler with click cooldown
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    const now = Date.now();
+    
+    // Prevent multiple clicks within 1 second
+    if (now - lastClickTime.current < 1000) return;
+    
+    lastClickTime.current = now;
+    dispatch({ type: "AddToCart", payload: product });
+  };
+
+  if (error) return <div className="text-center text-red-500">{error}</div>;
+  if (!product) return <div className="text-center">Loading...</div>;
 
   return (
-    <>
-      <div className="w-[100%] m-auto px-4 sm:px-4 md:px-4 lg:px-14 py-7 sm:py-7 md:py-7 lg:py-14">
-        {products ? (
-          <div className="flex flex-col sm:flex-col md:flex-row justify-around shadow-[0px_6px_21px_0px_rgba(0,_0,_0,_0.1)]">
-            <div className="w-[100%] sm:w-[100%] md:w-[50%] bg-[#fcfbfb] flex flex-col p-5 mb-10 sm:mb-10 md:mb-0">
-              <img
-                src={products.image}
-                className="w-32 sm:w-32 h-32 sm:h-32 m-auto lg:m-0 lg:ml-10 rounded-[50%] shadow-[0px_4px_21px_0px_rgba(0,_0,_0,_0.1)]"
-                alt={products.name || 'Product Image'}  // Added alt text for better accessibility
-              />
-              <div className="flex flex-col ml-0 sm:ml-0 md:ml-10 mt-7">
-                <p className="font-primary-head font-medium text-[16px] mb-1.5">{products.name}</p>
-                <p className="font-primary-head font-bold text-[21px] text-[#D95103] mb-1.5">Rs. {products.caloriesPerServing}</p>
-                <p className="font-primary-head font-medium text-[16px] mb-5">Rating: {products.rating}</p>
-                <div>
-                  <button className="font-primary-head font-medium p-3 bg-black text-white cursor-pointer">
-                    Buy Now
-                  </button>
-
-                  <button
-                    onClick={() => {
-                      dispatch({ type: "AddToCart", payload: products });
-                    }}
-                    className="font-primary-head font-medium p-3 ml-4 bg-red-600 text-white cursor-pointer"
-                  >
-                    Add To Cart
-                  </button>
-                  
-                </div>
-              </div>
+    <div className="w-full px-4 lg:px-14 py-7 lg:py-14">
+      <div className="flex flex-col md:flex-row justify-around shadow-md">
+        {/* Product Image Section */}
+        <div className="w-full md:w-1/2 bg-gray-100 flex flex-col p-5 mb-10 md:mb-0">
+          <img
+            src={product.image}
+            className="w-32 h-32 mx-auto lg:ml-10 rounded-full shadow-md"
+            alt={product.name || "Product Image"}
+          />
+          <div className="ml-0 md:ml-10 mt-7">
+            <p className="font-medium text-lg">{product.name}</p>
+            <p className="font-bold text-2xl text-red-600">Rs. {product.caloriesPerServing}</p>
+            <p className="font-medium text-lg">Rating: {product.rating}</p>
+            <div className="mt-5">
+              <button className="p-3 bg-black text-white">Buy Now</button>
+              <button
+                onClick={handleAddToCart}
+                className="p-3 ml-4 bg-red-600 text-white"
+              >
+                Add To Cart
+              </button>
             </div>
+          </div>
+        </div>
 
-            <div className="bg-[#f5f4f4] p-5 w-[100%] sm:w-[100%] md:w-[50%]">
-              <div className="font-primary-head text-[15px] tracking-wide">
-                <h1 className="text-[19px] sm:text-[19px] md:text-[23px] text-[#0C6967] font-extrabold">Product Description</h1>
-                <p className="mb-1 font-medium">Meal-Type: {products.mealType[0]}</p>
-                <p className="mb-1 font-medium">Cook Time: {products.cookTimeMinutes} Minutes</p>
-                <p className="mb-1 font-medium">Cuisine: {products.cuisine}</p>
-                <p className="mb-1 font-medium">Difficulty: {products.difficulty}</p>
-              </div>
+        {/* Product Details Section */}
+        <div className="bg-gray-200 p-5 w-full md:w-1/2">
+          <h1 className="text-xl font-extrabold text-teal-700">Product Description</h1>
+          <p className="font-medium">Meal-Type: {product.mealType?.[0]}</p>
+          <p className="font-medium">Cook Time: {product.cookTimeMinutes} Minutes</p>
+          <p className="font-medium">Cuisine: {product.cuisine}</p>
+          <p className="font-medium">Difficulty: {product.difficulty}</p>
 
-              <h1 className="font-primary-head text-[19px] sm:text-[19px] md:text-[23px] mt-4 text-[#0C6967] font-extrabold tracking-wide">
-                Ingredients:
-              </h1>
-              <p className="font-primary-head font-normal mt-2 p-1 flex flex-col flex-wrap ">
-                {
-                  products.ingredients.map((ingredient) => (
-                    <li key={ingredient}>{ingredient}</li>
-                  ))}
-                  </p>
-                  </div>
-                  </div>
-                ) : (
-                
-          <div className="font-primary-head font-normal text-[17px] text-center">Loading...</div>
-        )}
+          <h1 className="text-xl font-extrabold text-teal-700 mt-4">Ingredients:</h1>
+          <ul className="mt-2">
+            {product.ingredients?.map((ingredient) => (
+              <li key={ingredient} className="list-disc ml-4">{ingredient}</li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 
 export default ProductDescription;
-
