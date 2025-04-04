@@ -112,7 +112,7 @@ export const CartProvider = ({ children }) => {
     <cartContext.Provider value={{ state, dispatch }}>
       {children}
       <ToastContainer
-        position="bottom-right"
+        position="top-right"
         autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
