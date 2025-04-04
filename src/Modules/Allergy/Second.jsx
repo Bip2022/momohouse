@@ -10,7 +10,9 @@ function Second() {
       {/* Background Images */}
       <img src={img1} alt="background" className="absolute  lg:left-[200px] left-[18px] md:left-[60px] sm:left-[30px] xl:left-[300px] 2xl:left-[400px]  top-[120px] lg:top-[95px]  lg:w-[380px] lg:h-[340px] w-[200px] h-[200px]" />
       <img src={img2} alt="background" className="absolute lg:top-[520px] sm:w-[1000px] w-[320px] lg:w-[1400px] xl:w-[1100px] lg:h-[800px]  sm:h-[700px]" />
-      <img src={img3} alt="background" className="absolute right-[10px] sm:right-[20px] lg:right-[180px] xl:right-[290px] 2xl:right-[400px] md:right-[50px] lg:top-[1520px] top-[1760px] sm:top-[1590px] lg:bottom-0   w-[150px] lg:w-[230px] lg:h-[260px]" />
+      <img src={img3} alt="background"  className="absolute bottom-0 left-0 right-0 mx-auto sm:left-auto sm:right-[20px] lg:right-[180px] xl:right-[290px] 2xl:right-[400px] md:right-[50px] w-[120px] h-[130px] sm:w-[150px] sm:h-[160px] lg:w-[230px] lg:h-[260px] z-0" 
+/>
+
 
       {/* Section Title */}
       <h1 className="relative inline-flex items-center justify-center gap-4 mb-12 z-10 text-[40px] leading-[48px]">
