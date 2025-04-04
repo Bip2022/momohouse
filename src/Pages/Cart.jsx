@@ -91,14 +91,26 @@ function Cart() {
                   </div>
                 </div>
               ))}
-              <button
-                onClick={() => {
-                  dispatch({ type: "Clear" });
-                }}
-                className="bg-[#D95103] font-light p-2 text-white rounded w-36 py-3 cursor-pointer"
-              >
-                Clear Cart
-              </button>
+              
+              {/* Action Buttons Container */}
+              <div className="flex gap-2">
+                <button
+                  onClick={() => {
+                    dispatch({ type: "Clear" });
+                  }}
+                  className="bg-[#D95103] font-light p-2 text-white rounded w-36 py-3 cursor-pointer"
+                >
+                  Clear Cart
+                </button>
+                
+                <NavLink to="/menu" className="w-36">
+                  <button
+                    className="bg-green-500 font-light p-2 text-white rounded w-full py-3 cursor-pointer"
+                  >
+                    Add Items
+                  </button>
+                </NavLink>
+              </div>
             </div>
 
             {/* Order Summary */}
@@ -115,21 +127,20 @@ function Cart() {
           </div>
         ) : (
           <div className="w-full max-w-lg mx-auto py-10 sm:py-16 md:py-20 lg:py-24 xl:py-28 text-center">
-          <NavLink to="/menu">
-            <img
-              className="w-3/4 sm:w-2/3 md:w-1/2 lg:w-[75%] xl:w-[75%] mx-auto"
-              src={cart}
-              alt="Empty Cart"
-            />
-          </NavLink>
-          <p className="font-semibold text-lg sm:text-xl md:text-2xl mt-4 sm:mt-5">
-            Empty Cart{" "}
-            <NavLink to="/menu" className="underline text-red-500">
-              Shop Now
+            <NavLink to="/menu">
+              <img
+                className="w-3/4 sm:w-2/3 md:w-1/2 lg:w-[75%] xl:w-[75%] mx-auto"
+                src={cart}
+                alt="Empty Cart"
+              />
             </NavLink>
-          </p>
-        </div>
-        
+            <p className="font-semibold text-lg sm:text-xl md:text-2xl mt-4 sm:mt-5">
+              Empty Cart{" "}
+              <NavLink to="/menu" className="underline text-red-500">
+                Shop Now
+              </NavLink>
+            </p>
+          </div>
         )}
       </div>
     </>
@@ -137,4 +148,3 @@ function Cart() {
 }
 
 export default Cart;
-
