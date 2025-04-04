@@ -29,7 +29,7 @@ function Success() {
     };
 
     return (
-        <div className="w-full flex flex-col items-center justify-center sm:px-8 lg:px-14 text-center font-primary-head">
+        <div className="w-full flex flex-col items-center justify-center sm:px-8 lg:px-14 text-center font-primary-head py-8">
             <img
                 className="mx-auto my-6 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-auto"
                 src={success}
@@ -38,7 +38,7 @@ function Success() {
             <h2 className="font-bold text-[#2caa27] mt-6 mb-3 text-lg sm:text-xl md:text-2xl lg:text-3xl">
                 Payment Successful
             </h2>
-            <div className="space-y-2 max-w-2xl">
+            <div className="space-y-2 max-w-2xl w-full px-4">
                 <p className="font-normal text-sm sm:text-base md:text-lg lg:text-xl">
                     <strong>Total Amount:</strong> Rs. {paymentData.total_amount}
                 </p>
