@@ -35,8 +35,8 @@ function Payment() {
         <input type="hidden" id="product_code" name="product_code" value="EPAYTEST" required />
         <input type="hidden" id="product_service_charge" name="product_service_charge" value="0" required />
         <input type="hidden" id="product_delivery_charge" name="product_delivery_charge" value="0" required />
-        <input type="hidden" id="success_url" name="success_url" value="http://localhost:5173/success" required />
-        <input type="text" id="failure_url" name="failure_url" value="http://localhost:5173/failure" required />
+        <input type="hidden" id="success_url" name="success_url" value="https://momohouse-ten.vercel.app/success" required />
+        <input type="text" id="failure_url" name="failure_url" value="https://momohouse-ten.vercel.app/failure" required />
         <input type="hidden" id="signed_field_names" name="signed_field_names" value="total_amount,transaction_uuid,product_code" required />
         <input type="hidden" id="signature" name="signature" value={hashInBase64} required />
 
