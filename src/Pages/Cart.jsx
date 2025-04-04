@@ -115,26 +115,21 @@ function Cart() {
           </div>
         ) : (
           <div className="w-full max-w-lg mx-auto py-10 sm:py-16 md:py-20 lg:py-24 xl:py-28 text-center">
-            <NavLink to="/menu">
-              <img
-                className="w-3/4 sm:w-2/3 md:w-1/2 lg:w-[75%] xl:w-[75%] mx-auto"
-                src={cart}
-                alt="Empty Cart"
-              />
+          <NavLink to="/menu">
+            <img
+              className="w-3/4 sm:w-2/3 md:w-1/2 lg:w-[75%] xl:w-[75%] mx-auto"
+              src={cart}
+              alt="Empty Cart"
+            />
+          </NavLink>
+          <p className="font-semibold text-lg sm:text-xl md:text-2xl mt-4 sm:mt-5">
+            Empty Cart{" "}
+            <NavLink to="/menu" className="underline text-red-500">
+              Shop Now
             </NavLink>
-            <p className="font-semibold text-lg sm:text-xl md:text-2xl mt-4 sm:mt-5">
-              Empty Cart{" "}
-              <NavLink to="/menu" className="underline text-red-500">
-                Shop Now
-              </NavLink>
-            </p>
-            {/* Add Items Button */}
-            <NavLink to="/menu">
-              <button className="bg-[#0C6967] text-white p-3 mt-4 rounded w-64">
-                Add Items
-              </button>
-            </NavLink>
-          </div>
+          </p>
+        </div>
+        
         )}
       </div>
     </>
@@ -142,3 +137,4 @@ function Cart() {
 }
 
 export default Cart;
+
