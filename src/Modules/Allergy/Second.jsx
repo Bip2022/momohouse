@@ -6,11 +6,25 @@ import "@fontsource/chela-one";
 
 function Second() {
   return (
-    <div className="px-4 sm:px-6 relative w-full min-h-screen flex flex-col items-center justify-center">
-      {/* Background Images */}
-      <img src={img1} alt="background" className="absolute  lg:left-[170px] left-[10px] md:left-[60px] sm:left-[30px]  xl:left-[290px] 2xl:left-[400px]  top-[120px] lg:top-[100px] xl:top-[290px]  2xl:top-[900px] lg:w-[380px] lg:h-[340px] w-[200px] h-[200px]" />
-      <img src={img2} alt="background" className="absolute lg:top-[520px] sm:w-[1000px] w-[320px] lg:w-[1400px] xl:w-[1100px] lg:h-[800px] xl:top-[700px] 2xl:top-[1450px] sm:h-[700px]" />
-      <img src={img3} alt="background" className="absolute right-[10px] sm:right-[20px] lg:right-[180px] xl:right-[290px] 2xl:right-[400px] md:right-[50px] lg:top-[1700px] top-[1760px] sm:top-[1590px] 2xl:top-[2330px] lg:bottom-0   w-[150px] lg:w-[230px] lg:h-[260px]" />
+    <div className="mt-4 sm:px-6 relative w-full min-h-screen flex flex-col items-center justify-center">
+      {/* Background Images - Hidden on sm/md */}
+      <img
+        src={img1}
+        alt="background"
+        className="hidden lg:block absolute lg:left-[170px] xl:left-[290px] 2xl:left-[400px]  lg:top-[100px] xl:top-[100px] 2xl:top-[120px] lg:w-[380px] lg:h-[340px]"
+      />
+
+      <img
+        src={img2}
+        alt="background"
+        className="hidden lg:block absolute lg:top-[520px] lg:w-[1400px] xl:w-[1200px] lg:h-[800px] xl:top-[500px] 2xl:top-[640px]"
+      />
+
+      <img
+        src={img3}
+        alt="background"
+        className="hidden lg:block absolute lg:right-[180px] xl:right-[280px] 2xl:right-[400px] lg:top-[1530px] xl:top-[1530px] 2xl:top-[1530px] w-[150px] lg:w-[230px] lg:h-[260px]"
+      />
 
       {/* Section Title */}
       <h1 className="relative inline-flex items-center justify-center gap-4 mb-12 z-10 text-[40px] leading-[48px]">
